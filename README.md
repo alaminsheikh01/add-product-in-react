@@ -1,3 +1,9 @@
+demo: 
+
+![add price](https://user-images.githubusercontent.com/57319298/106349308-3c1e6080-62f7-11eb-97dd-5993b5e164e3.png)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
