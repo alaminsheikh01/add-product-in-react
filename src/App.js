@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+
+class Timer extends Component {
+  componentDidMount() {
+    setInterval(this.ticker, 1000);
+  }
+  ticker() {
+    this.setState({ clock: new Date() - this.props.start });
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      clock: 0,
+    };
+    this.ticker = this.ticker.bind(this);
+  }
+  render() {
+    var clock = Math.round(this.state.clock / 1000);
+    return (
+      <>
+        <p>You have been on this site since:</p>
+        <br />
+        <span>{clock}</span>
+      </>
+    );
+  }
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Timer app</h1>
+      <Timer start={new Date()} />
     </div>
   );
 }
